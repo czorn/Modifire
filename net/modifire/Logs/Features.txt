@@ -1,0 +1,19 @@
+Multiplayer Chat
+Holding items
+Sending current item to server
+HUD (health, ammo, etc)
+Player names & bilboard
+Reliable packet protocol for sending map data
+game fsm
+
+
+
+
+want to join server
+server says ok
+dl map
+load game
+send game loaded
+server start send game state - add you to spectator
+send picked team
+start send input

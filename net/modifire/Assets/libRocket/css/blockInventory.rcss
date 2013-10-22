@@ -1,0 +1,50 @@
+body
+{
+    font-family: Delicious;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 15;
+}
+
+div#centered
+{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+datagrid
+{
+	display: block;
+	background-color: blue;
+}
+/*
+datagrid.inventory datagridcell
+{
+	width: 64px;
+	height: 64px;
+}*/
+
+button.blockInventory
+{    
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+    padding: 2px;
+    margin: 2px;
+    background-decorator: image;
+    background-image: ../Images/blocks.png;
+    background-color: red;
+}
+
+button.blockInventory:hover
+{
+    background-image: ../Images/button_over.png;
+}
+
+button.blockInventory:active
+{
+    background-image: ../Images/button_down.png;
+}
+
+

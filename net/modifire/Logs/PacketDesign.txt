@@ -1,0 +1,28 @@
+
+
+From Client to Server
+    PacketCode (int [8])
+        if(Request_Info):
+            end packet
+        if(Request_Join):
+            playerName (fixed String [name length, name)
+            end packet
+        if(Player_Sate):
+            PS_Keys                             (int 8)             *
+                numKeysPressed                  (int 8)
+                keysPressed                     (several int 8)
+            PS_LookingDirection                 (int 8)             *
+                x                               (float 32)          *
+                y                               (float 32)          *
+                z                               (float 32)          *
+            PS_isWalking                        (int 8)             *
+                0 or 1                          (int 8)             *
+            PS_Pos
+                x                               (float 32)          *
+                y                               (float 32)          *
+                z                               (float 32)          *
+                
+                
+                
+           Total: 224
+        

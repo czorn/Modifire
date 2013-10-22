@@ -1,0 +1,66 @@
+<rml>
+	<head>
+		<title>Options</title>
+		<link type="text/template" href="Templates/window.rml" />
+		<style>
+			body
+			{
+				width: 350px;
+				height: 350px;
+				
+				margin: auto;
+				font-family: Delicious;
+				font-weight: normal;
+				font-style: normal;
+				font-size: 15;
+			}
+
+			div#title_bar div#icon
+			{
+				icon-image-s: 230px 281px;
+				icon-image-t: 152px 191px;
+
+				//display: none;
+			}
+
+			form div
+			{
+				width: 200px;
+				margin: auto;
+			}
+		</style>
+		<script>
+		
+def OnLoad(self):
+	import Settings
+	self.owner_document.GetElementById('SOUND_EFFECT_VOLUME').SetAttribute('value', str(Settings.SOUND_EFFECT_VOLUME))
+	self.owner_document.GetElementById('MOUSE_SENSITIVITY').SetAttribute('value', str(Settings.MOUSE_SENSITIVITY))
+	self.owner_document.GetElementById('title').inner_rml = 'Options'
+	
+def OnClose(self, accept):
+	if(accept):
+		import Settings
+		Settings.MOUSE_SENSITIVITY = self.owner_document.GetElementById('MOUSE_SENSITIVITY').GetAttribute('value')
+		Settings.SOUND_EFFECT_VOLUME = self.owner_document.GetElementById('SOUND_EFFECT_VOLUME').GetAttribute('value')
+	
+	self.owner_document.Close()
+	messenger.send('optionsPopupClose', [accept])
+	
+	</script>
+	</head>
+	<body template="window" onload="OnLoad(self)">
+		<div id="blackBG">
+			<form id="options_form">
+				<p>
+					Audio:<br />
+					Game Effects <input id="SOUND_EFFECT_VOLUME" type="text" name="SOUND_EFFECT_VOLUME" size="5"/> (0.0 - 1.0)<br />
+					<br />
+					Controls:<br />
+					Mouse Sensitivity <input id="MOUSE_SENSITIVITY" type="text" name="MOUSE_SENSITIVITY" size="5" value="5"/> <br />
+				</p>
+				<br /><input type="submit" name="button" value="accept" onclick="OnClose(self, True)">Accept</input>
+				<input type="submit" name="button" value="cancel" onclick="OnClose(self, False)">Cancel</input>
+			</form>
+		</div>
+	</body>
+</rml>

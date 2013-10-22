@@ -1,0 +1,88 @@
+<rml>
+	<head>
+		<title>Options</title>
+		<link type="text/template" href="Templates/window.rml" />
+		<style>
+			body
+			{
+				width: 350px;
+				height: 350px;
+				
+				margin: auto;
+				font-family: Delicious;
+				font-weight: normal;
+				font-style: normal;
+				font-size: 15;
+			}
+
+			div#title_bar div#icon
+			{
+				icon-image-s: 230px 281px;
+				icon-image-t: 152px 191px;
+
+				//display: none;
+			}
+
+			form div
+			{
+				width: 200px;
+				margin: auto;
+			}
+		</style>
+		<script>
+		
+def OnLoad(self):
+	import Settings
+	self.owner_document.GetElementById('LAST_WORLD').SetAttribute('value', str(Settings.LAST_WORLD))
+	self.owner_document.GetElementById('title').inner_rml = 'Load Environment'
+	
+	from environment.EnvironmentLoader import EnvironmentLoader
+	for worldName in EnvironmentLoader.FindExistingWorlds():
+		#world = document.CreateElement('option')
+		#world.SetAttribute('value', worldName)
+		#world.inner_rml = worldName
+		self.owner_document.GetElementById('ExistingWorlds').Add(worldName, worldName)
+	
+def OnClose(self, generate, accept):
+	if(accept):
+		if(generate):
+			import Settings, Globals
+			Settings.LAST_WORLD = self.owner_document.GetElementById('LAST_WORLD').GetAttribute('value')
+			
+			w = int(self.owner_document.GetElementById('WIDTH').GetAttribute('value'))
+			l = int(self.owner_document.GetElementById('LENGTH').GetAttribute('value'))
+			perlin = self.owner_document.GetElementById('PERLIN').checked
+			flat = self.owner_document.GetElementById('FLAT').checked
+			height = int(self.owner_document.GetElementById('HEIGHT').GetAttribute('value'))
+			Globals.ENV_LOAD_ARGS = [w, l, perlin, flat, height]
+		else:
+			import Settings
+			options = self.owner_document.GetElementById('ExistingWorlds').options
+			choice = self.owner_document.GetElementById('ExistingWorlds').selection
+			Settings.LAST_WORLD = options[choice].value
+			
+	self.owner_document.Close()
+	messenger.send('offlinePopupClose', [accept])
+	
+	</script>
+	</head>
+	<body template="window" onload="OnLoad(self)">
+		<div id="blackBG">
+			<form id="options_form">
+			Load Existing World:
+			<br /><select name="ExistingWorlds" id="ExistingWorlds"></select><br />
+			
+		    <center><input type="submit" name="button" value="accept" onclick="OnClose(self, False, True)">Load</input></center><br />
+		    Generate New World: <br />
+		    
+			<input id="LAST_WORLD" type="text" name="LAST_WORLD" size="16"/> World Name<br />
+			<input id="WIDTH" type="text" name="WIDTH" size="4" value="48"/> Width <input id="LENGTH" type="text" name="LENGTH" size="4" value = 48/> Height (Min 8 | Max 128 | Must be divisible by 8)<br />
+			<input id="PERLIN" type="radio" name="GENERATE" value="false" checked="true" /> Generate Hills<br />
+			<input id="FLAT" type="radio" name="GENERATE" value="false" /> Generate Flat Environment <br />
+			<input id="HEIGHT" type="text" name="HEIGHT" size="4" value ="16"/> Flat Ground Height (1 - 48)<br />
+			<input type="submit" name="button" value="accept" onclick="OnClose(self, True, True)">Generate</input> 
+			<input type="submit" name="button" value="cancel" onclick="OnClose(self, False, False)">Cancel</input>
+			</form>
+		</div>
+	</body>
+</rml>

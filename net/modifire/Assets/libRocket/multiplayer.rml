@@ -1,0 +1,66 @@
+<rml>
+	<head>
+		<title>Options</title>
+		<link type="text/template" href="Templates/window.rml" />
+		<style>
+			body
+			{
+				width: 350px;
+				height: 350px;
+				
+				margin: auto;
+				font-family: Delicious;
+				font-weight: normal;
+				font-style: normal;
+				font-size: 15;
+			}
+
+			div#title_bar div#icon
+			{
+				icon-image-s: 230px 281px;
+				icon-image-t: 152px 191px;
+
+				//display: none;
+			}
+
+			form div
+			{
+				width: 200px;
+				margin: auto;
+			}
+		</style>
+		<script>
+		
+def OnLoad(self):
+	import Settings
+	self.owner_document.GetElementById('NAME').SetAttribute('value', str(Settings.NAME))
+	self.owner_document.GetElementById('SERVER').SetAttribute('value', str(Settings.SERVER))
+	self.owner_document.GetElementById('title').inner_rml = 'Multiplayer'
+	
+def OnClose(self, accept):
+	if(accept):
+		import Settings
+		Settings.NAME = self.owner_document.GetElementById('NAME').GetAttribute('value')
+		Settings.SERVER = self.owner_document.GetElementById('SERVER').GetAttribute('value')
+	
+	self.owner_document.Close()
+	messenger.send('multiplayerPopupClose', [accept])
+	
+	</script>
+	</head>
+	<body template="window" onload="OnLoad(self)">
+		<div id="blackBG">
+			<form id="options_form">
+				<p>
+					Name:<br />
+					<input id="NAME" type="text" name="NAME" size="16"/><br />
+					<br />
+					Server IP Address:<br />
+					<input id="SERVER" type="text" name="SERVER" size="25" value="5"/> <br />
+				</p>
+				<br /><input type="submit" name="button" value="accept" onclick="OnClose(self, True)">Accept</input>
+				<input type="submit" name="button" value="cancel" onclick="OnClose(self, False)">Cancel</input>
+			</form>
+		</div>
+	</body>
+</rml>

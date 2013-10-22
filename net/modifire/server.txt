@@ -1,0 +1,8 @@
+2012-03-18 12:40:56.142000 [INFO] Log File Created (server.txt)
+2012-03-18 12:41:03.143000 [INFO] Connection on 5556 okay.
+2012-03-18 12:41:08.480000 [INFO] Join Request Accepted (127.0.0.1:5558)
+2012-03-18 12:41:08.546000 [INFO] Sending Environment to (127.0.0.1:50647)
+2012-03-18 12:41:16.636000 [INFO] Client Loaded Engine (127.0.0.1:5558)
+2012-03-18 12:41:33.433000 [INFO] Join Request Accepted (68.59.144.180:5558)
+2012-03-18 12:41:33.464000 [INFO] Sending Environment to (68.59.144.180:49569)
+2012-03-18 12:41:39.242000 [INFO] Client Loaded Engine (68.59.144.180:5558)

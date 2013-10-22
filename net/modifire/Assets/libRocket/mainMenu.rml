@@ -1,0 +1,14 @@
+<rml>
+    <head>
+    <link type="text/css" href="css/mainMenu.rcss" />
+    <link type="text/template" href="Templates/window.rml" />
+    </head>
+    <body>
+    <div id="centered">
+        <button onclick="print 'hello'">Offline</button><br />
+        <button onclick="print 'hello'">Multiplayer</button><br />
+        <button onclick="print 'hello'">Options</button><br />
+        <button onclick="print 'hello'">Exit</button><br />
+    </div>
+    </body>
+</rml>

@@ -1,0 +1,102 @@
+<rml>
+	<head>
+		<title>High Scores</title>
+		<link type="text/template" href="Templates/window.rml" />
+		<style>
+			body
+			{
+				width: 350px;
+				height: 350px;
+				
+				margin: auto;
+				display:block;
+				font-family: Delicious;
+				font-weight: normal;
+				font-style: normal;
+				font-size: 15;
+			}
+			
+			div#title_bar div#icon
+			{
+				icon-image-s: 281px 331px;
+				icon-image-t: 152px 191px;
+			}
+			
+			datagrid
+			{
+				margin-bottom: 20px;
+				min-rows: 10;
+			}
+			
+			datagrid data_grid_body
+			{
+				min-height: 200px;
+			}
+			
+			defender
+			{
+				display: block;
+				width: 64px;
+				height: 16px;
+				
+				defender-decorator: defender;
+				defender-image-src: high_scores_defender.tga;
+			}
+			
+			body
+			{
+				width: 700px;
+			}
+			
+			div#window
+			{
+			    background-color: transparent;
+			}
+		</style>
+		<script>
+		
+def OnLoad(self):
+	# Color our row green so it sticks out
+	myPidDiv = self.owner_document.GetElementById('myPidCell')
+	if(myPidDiv):
+	    myRow = myPidDiv.parent_node.parent_node
+	    myRow.style.background_color = '#007700A0'
+	    myRow.style.color = 'white'
+	    
+		</script>
+	</head>
+	<body template="window" >
+		<datagrid id="datagrid" source="scoreboard.team1" onrowupdate="OnLoad(self)">
+			<col fields="isAlive" width="10%" formatter="scoreboardIsAliveFormatter"> </col>
+			<col fields="pid" width="10%" formatter="scoreboardPidFormatter">Id</col>
+			<col fields="name" width="30%" formatter="scoreboardFormatter">Name</col>
+			<col fields="kills" width="10%" formatter="scoreboardFormatter">Kills</col>
+			<col fields="deaths" width="10%" formatter="scoreboardFormatter">Deaths</col>
+			<col fields="assists" width="10%" formatter="scoreboardFormatter">Assists</col>
+			<col fields="score" width="10%" formatter="scoreboardFormatter">Score</col>
+			<col fields="ping" width="10%" formatter="scoreboardFormatter">Ping</col>
+		</datagrid>
+		
+		<datagrid id="datagrid" source="scoreboard.team2" onrowupdate="OnLoad(self)">
+			<col fields="isAlive" width="10%" formatter="scoreboardIsAliveFormatter"> </col>
+			<col fields="pid" width="10%" formatter="scoreboardPidFormatter">Id</col>
+			<col fields="name" width="30%" formatter="scoreboardFormatter">Name</col>
+			<col fields="kills" width="10%" formatter="scoreboardFormatter">Kills</col>
+			<col fields="deaths" width="10%" formatter="scoreboardFormatter">Deaths</col>
+			<col fields="assists" width="10%" formatter="scoreboardFormatter">Assists</col>
+			<col fields="score" width="10%" formatter="scoreboardFormatter">Score</col>
+			<col fields="ping" width="10%" formatter="scoreboardFormatter">Ping</col>
+		</datagrid>
+		
+		<datagrid id="datagrid" source="scoreboard.spectators" onrowupdate="OnLoad(self)">
+			<col fields="isAlive" width="10%" formatter="scoreboardIsAliveFormatter"> </col>
+			<col fields="pid" width="10%" formatter="scoreboardPidFormatter">Id</col>
+			<col fields="name" width="30%" formatter="scoreboardFormatter">Name</col>
+			<col fields="kills" width="10%" formatter="scoreboardFormatter">Kills</col>
+			<col fields="deaths" width="10%" formatter="scoreboardFormatter">Deaths</col>
+			<col fields="assists" width="10%" formatter="scoreboardFormatter">Assists</col>
+			<col fields="score" width="10%" formatter="scoreboardFormatter">Score</col>
+			<col fields="ping" width="10%" formatter="scoreboardFormatter">Ping</col>
+		</datagrid>
+	</body>
+</rml>

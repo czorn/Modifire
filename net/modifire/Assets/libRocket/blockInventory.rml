@@ -1,0 +1,18 @@
+<rml>
+    <head>
+    <link type="text/css" href="css/blockInventory.rcss" />
+    </head>
+    <body>
+    	<div id="centered">
+		    <datagrid class="inventory" source="blockInventory.slots">
+		    	<col fields="0" width="72px" formatter="blockInventoryFormatter"> </col>
+		    	<col fields="1" width="72px" formatter="blockInventoryFormatter"> </col>
+		    	<col fields="2" width="72px" formatter="blockInventoryFormatter"> </col>
+		    	<col fields="3" width="72px" formatter="blockInventoryFormatter"> </col>
+		    	<col fields="4" width="72px" formatter="blockInventoryFormatter"> </col>
+		    	<col fields="5" width="72px" formatter="blockInventoryFormatter"> </col>
+		    </datagrid>
+		   	<button onclick="print 'as'">test</button>
+		</div>
+    </body>
+</rml>

@@ -1,0 +1,53 @@
+0.01 Alpha
+    Break and place blocks
+    Mousewheel to change block to drop
+
+0.02 Alpha
+
+	Save and load environments
+	Import smaller, saved environments into larger environment
+	2D Perlin Noise for generated environment
+	
+	Inventory
+	Crafting Weapons
+	Control and Shift clicking
+	HUD Hotbar
+	   Adding items
+	   Changing selected item with mouse wheel
+	Updated Inventory Graphics
+	Creating weapons from weapon bases
+	Toss Items
+    Pick Up Items
+    Third Person View
+    Roaming Ralph Model for player
+    Events
+    
+To Do
+    Clean up events 
+    
+0.05 Alpha
+
+    Fixed Client-Side Prediction
+    Can destroy and build on server
+    Other player animations
+    Properly removing players when they leave
+    Fixed timeout checking
+    
+    Disabled
+        Mouse wheel
+        Inventory Menu
+        
+    To Do:
+        Player names
+        Some sort of GUI for server information
+            e.g. Text when players leave and join
+        What happens if a client crashes during load?
+        
+0.06
+
+    Refactored items & crafting
+    Changed inventory to use DirectButtons instead of mouse coordinates
+    
+    
+    
+    

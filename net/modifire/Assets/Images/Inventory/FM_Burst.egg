@@ -1,0 +1,61 @@
+<Comment> {
+  "egg-texture-cards -o FM_Burst.egg -p 100,50 FM_Burst.png FM_Burst_Over.png"
+}
+<Texture> FM_Burst_Over {
+  FM_Burst_Over.png
+}
+<Texture> FM_Burst {
+  FM_Burst.png
+}
+<Group> {
+  <Switch> { 1 }
+  <Scalar> fps { 2 }
+  <VertexPool> vpool {
+    <Vertex> 0 {
+      -0.5 0.5 0
+      <UV> { 0 1 }
+    }
+    <Vertex> 1 {
+      -0.5 -0.5 0
+      <UV> { 0 0 }
+    }
+    <Vertex> 2 {
+      0.5 -0.5 0
+      <UV> { 1 0 }
+    }
+    <Vertex> 3 {
+      0.5 0.5 0
+      <UV> { 1 1 }
+    }
+    <Vertex> 4 {
+      -0.5 0.5 0
+      <UV> { 0 1 }
+    }
+    <Vertex> 5 {
+      -0.5 -0.5 0
+      <UV> { 0 0 }
+    }
+    <Vertex> 6 {
+      0.5 -0.5 0
+      <UV> { 1 0 }
+    }
+    <Vertex> 7 {
+      0.5 0.5 0
+      <UV> { 1 1 }
+    }
+  }
+  <Group> FM_Burst {
+    <Polygon> {
+      <RGBA> { 1 1 1 1 }
+      <TRef> { FM_Burst }
+      <VertexRef> { 0 1 2 3 <Ref> { vpool } }
+    }
+  }
+  <Group> FM_Burst_Over {
+    <Polygon> {
+      <RGBA> { 1 1 1 1 }
+      <TRef> { FM_Burst_Over }
+      <VertexRef> { 4 5 6 7 <Ref> { vpool } }
+    }
+  }
+}

@@ -1,0 +1,61 @@
+<Comment> {
+  "egg-texture-cards -o inventorySlot.egg -p 64,64 inventorySlot-up.png inventorySlot-over.png"
+}
+<Texture> inventorySlot-up {
+  inventorySlot-up.png
+}
+<Texture> inventorySlot-over {
+  inventorySlot-over.png
+}
+<Group> {
+  <Switch> { 1 }
+  <Scalar> fps { 2 }
+  <VertexPool> vpool {
+    <Vertex> 0 {
+      -0.5 0.5 0
+      <UV> { 0 1 }
+    }
+    <Vertex> 1 {
+      -0.5 -0.5 0
+      <UV> { 0 0 }
+    }
+    <Vertex> 2 {
+      0.5 -0.5 0
+      <UV> { 1 0 }
+    }
+    <Vertex> 3 {
+      0.5 0.5 0
+      <UV> { 1 1 }
+    }
+    <Vertex> 4 {
+      -0.5 0.5 0
+      <UV> { 0 1 }
+    }
+    <Vertex> 5 {
+      -0.5 -0.5 0
+      <UV> { 0 0 }
+    }
+    <Vertex> 6 {
+      0.5 -0.5 0
+      <UV> { 1 0 }
+    }
+    <Vertex> 7 {
+      0.5 0.5 0
+      <UV> { 1 1 }
+    }
+  }
+  <Group> inventorySlot-up {
+    <Polygon> {
+      <RGBA> { 1 1 1 1 }
+      <TRef> { inventorySlot-up }
+      <VertexRef> { 0 1 2 3 <Ref> { vpool } }
+    }
+  }
+  <Group> inventorySlot-over {
+    <Polygon> {
+      <RGBA> { 1 1 1 1 }
+      <TRef> { inventorySlot-over }
+      <VertexRef> { 4 5 6 7 <Ref> { vpool } }
+    }
+  }
+}

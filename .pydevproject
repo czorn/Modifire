@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?eclipse-pydev version="1.0"?>
+
+<pydev_project>
+<pydev_property name="org.python.pydev.PYTHON_PROJECT_INTERPRETER">Panda3D_Python</pydev_property>
+<pydev_property name="org.python.pydev.PYTHON_PROJECT_VERSION">python 2.7</pydev_property>
+<pydev_pathproperty name="org.python.pydev.PROJECT_SOURCE_PATH">
+<path>/Modifire</path>
+<path>/Modifire/net/modifire</path>
+</pydev_pathproperty>
+<pydev_pathproperty name="org.python.pydev.PROJECT_EXTERNAL_SOURCE_PATH">
+<path>C:\Panda3D-1.8.0\lib</path>
+<path>C:\Panda3D-1.8.0\direct</path>
+<path>C:\Panda3D-1.8.0\pandac</path>
+<path>C:\Panda3D-1.8.0\include</path>
+<path>C:\Panda3D-1.8.0</path>
+<path>C:\Panda3D-1.8.0\bin</path>
+</pydev_pathproperty>
+</pydev_project>

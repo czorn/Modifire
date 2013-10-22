@@ -1,0 +1,16 @@
+import os
+import subprocess
+
+path = './'
+
+files = os.listdir(path)
+
+print files
+
+for f in files:
+	(filename, extension) = f.split('.')
+	if(extension == 'egg'):
+		mystr = 'C:\\Panda3D-1.7.2\\bin\\egg2bam.exe -ps rel -o %s.bam %s.egg' % (filename, filename)
+		print mystr
+		#subprocess.call([mystr])
+		os.system(mystr)
